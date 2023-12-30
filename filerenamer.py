@@ -29,12 +29,13 @@ def newnames(filelist):
 def unduplicate(newnamelist):
     oldlist = []
     unduplicatedlist = []
+    namelist = "ANIELDANIELDANIEL"
     for image in newnamelist:
         if image in unduplicatedlist:
             #counts how much instances of the name are behind it and adds that much 0's
             counts = oldlist.count(image)
             splitstring = image.split("_")
-            splitstring[1] = "0" * counts + splitstring[1]
+            splitstring[1] = splitstring[1] + namelist[0:counts]
             newname = "_".join(splitstring)
             oldlist.append(image)
             unduplicatedlist.append(newname)
